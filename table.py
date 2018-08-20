@@ -1,7 +1,7 @@
 #input a number n, and print its table
 n = int(input("Please enter a number: "))
 
-print (n, "x 1 =",n*1)
+print (n, "x 1 =",n*1) #Here comma is used to concatenate right side data to left one.
 print (n, "x 2 =",n*2)
 print (n, "x 3 =",n*3)
 print (n, "x 4 =",n*4)

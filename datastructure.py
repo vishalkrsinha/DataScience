@@ -6,7 +6,8 @@ Created on Mon Aug 20 22:27:52 2018
 """
 
 """List"""
-zoo_animals = ["sdjhs","erewrew","erewrew","erewr"] #Defining & Initializing a 1D list
+#Defining & Initializing a 1D list
+zoo_animals = ["sdjhs","erewrew","erewrew","erewr"]
 
 zoo_animals[0] #Accessing individual list item
 zoo_animals[1]
@@ -22,7 +23,43 @@ spam[0][1]
 spam[1][4]
 spam[-1]
 
+#Another example: List can contain hetrogeneous data items
+lst = ["One","Two","Three",4,5,6,4.5,5.6,True,False]
+lst[0]
+lst[1]
+lst[2]
+lst[4]
+lst[7]
+lst[9]
+lst[-1]
+lst[-2]
 
+#Iterating list items directly
+for i in lst:
+    print (i)
+    
+#Iterating list items through range
+for i in range(0,10,4):
+    print (lst[i])
+    
+
+#Search the item in list
+for i in range(0,10):
+    if lst[i] == True:
+        print("Matching Index: ",i)
+        
+#######################################################################
+"""Tuple...."""
+x = ("One","Two","Three",4,5,6,4.5,5.6,True,False)
+for i in x:
+    print(i)
+    
+x[5] = 9
+
+y = ((1,2,3),(5,6,7))
+y[1][2]
+
+#######################################################################
 """Dictionary"""
 myCat = {'size':'fat', 'color':'gray', 'disposition':'loud'} #Dictionary
 myCat['color']

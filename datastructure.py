@@ -50,6 +50,9 @@ for i in range(0,10):
         
 #######################################################################
 """Tuple...."""
+##A Tuple has 2 advantages over a list:
+#1. Once values declared in a tuple, can't be changed later
+#2. A Tuple is faster than a List
 x = ("One","Two","Three",4,5,6,4.5,5.6,True,False)
 for i in x:
     print(i)

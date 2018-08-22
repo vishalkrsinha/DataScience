@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug  7 06:11:38 2018
-
-@author: vk4cs
-"""
-
 #####################Conditional statements.................
 a = 10
 b = 15
@@ -117,6 +110,13 @@ else:
     print("FAIL")
     
 ###########################################################Loops...................
+lst = [1,2,3,4,5,6,7,8,9]
+for i in lst:
+    print(i)
+    
+for i in "my name":
+    print(i)
+
 for i in range(1,5):
     for j in range(1,5):
         print(i, j)        
@@ -144,7 +144,10 @@ for i in range(1,a*b+1):
         print("The LCM is: ",i)
         break
     
-    
+#Tip: To get out of the infinite loop, use command (Ctrl+C) - Keyboard Interrupt
+
+#Tip: if i == 1, is same as if (i == 1)
+
 #WAP to count the number of digits in a number:
 n = int(input("Enter a number: "))
 
@@ -153,6 +156,8 @@ while n>count:
     count=count+1
     n=n//10  #integer division: // - quotient
 print(count)
-    
+#Tip: Integer division: (//: Quotient)
+#Example: 234//10 = 23
+
 #To do: Armstrong number: Assignment - Sum of the cubes of individual digits is the same number    
     

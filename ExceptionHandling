@@ -1,0 +1,82 @@
+#Tips......
+#1. Exceptions are unexpected errors that can happen in an application. e.g. 1/0, lst = [1,2,3] - lst[5]
+#2. If there is an exception in the application, we must need to handle it otherwise application will will get terminated & will quit. e.g. let's say we have 10 functionalities in the application & we get some unwanted exception during 3rd functionality & terminating the application without executing rest of the functionalities. So, better to handle them & continue the execution.
+
+########try-except block..........
+try:
+    a=1/0
+except ZeroDivisionError:
+    print("Division by Zero is wrong!")
+    
+    
+########multiple except blocks.....###################################
+try:
+    lst=[1,2,3]
+    print(lst[6])
+except ZeroDivisionError:
+    print("Division by Zero is wrong!")
+except IndexError:
+    print("An index error!")
+    
+#######Generic Exception####################################
+try:
+    lst=[1,2,3]
+    print(lst[6])
+except:
+    print("Some error!")
+
+#######Exception Handling: try-except-else####################################
+try:
+    lst=[1,2,3]
+    print(lst[6])
+except:
+    print("Some error!")
+else:
+    print("Else-block!")
+    
+#######Exception Handling: try-except-else-finally####################################
+try:
+    lst=[1,2,3]
+    print(lst[6])
+except:
+    print("Some error!")
+else:
+    print("Else-block!")
+finally:
+    print("Finally block")
+    
+#########Menu driven program for Calculator############
+def print_menu():
+     print("Enter 1 for Addition")
+     print("Enter 2 for Subtraction")
+     print("Enter 3 for Multiplication")
+     print("Enter 4 for Division")
+    
+
+choice = True
+while(choice):
+    input1=float(input("Please enter the first number: "))
+    input2=float(input("Please enter the second number: "))
+    print_menu()
+    ch = int(input())
+    
+    if(ch==1):
+        print("The answer = ",input1+input2)
+    elif(ch==2):
+        print("The answer = ",input1-input2)
+    elif(ch==3):
+        print("The answer = ",input1*input2)
+    elif(ch==4):
+        try:
+            print("The answer = ",input1/input2)
+        except ZeroDivisionError:
+            print("Division by zero not possible!")
+    else:
+        print("Plz eneter a valid choice. Try again!")
+        
+    c = input("Do you want to continue?(y/n): ")
+    if c=='n':
+        choice = False
+    
+    
+#########Assignment: Stone-paper-scissors################

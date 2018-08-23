@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Aug  8 07:01:07 2018
-
-@author: vk4cs
-"""
-
 #Tips...........
 #1. Each real life object has 2 types of features:
     #a. Characteristics: State of an object. e.g. Speed, color, Model etc at a specific time.

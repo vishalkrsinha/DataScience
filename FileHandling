@@ -1,0 +1,60 @@
+#######Writing a file.........
+f = open("C:\\Users\\vk4cs\\OneDrive\\Desktop\\FirstPythonFile.txt","w")#"w"/"a"
+f.write("Hello Python World!\nThis is my first file here...")
+f.close();
+
+#######Reading a file...........
+f = open("C:\\Users\\vk4cs\\OneDrive\\Desktop\\FirstPythonFile.txt","r")
+f.tell()
+f.readline()
+f.tell()
+f.readline()
+f.tell()
+f.readlines()
+f.tell()
+f.read()
+f.seek(0)
+f.read()
+f.readlines()
+f.seek(0)
+f.readlines()
+f.seek(0)
+f.read(10)
+f.close()
+
+######Renaming/Removing files.........
+import os
+os.rename("C:\\Users\\vk4cs\\OneDrive\\Desktop\\FirstPythonFile.txt","C:\\Users\\vk4cs\\OneDrive\\Desktop\\myFirstPythonFile.txt")
+
+os.remove("C:\\Users\\vk4cs\\OneDrive\\Desktop\\myFirstPythonFile.txt")
+
+######Playing with Folders............
+os.getcwd() #Getting current working directly
+os.chdir("C:\\Users\\vk4cs\\OneDrive\\Desktop")
+os.getcwd()
+
+f = open("tmp.txt","w")
+f.close()
+os.mkdir("PythonTestFolder") #Making a new directory
+os.rename("tmp.txt","PythonTestFolder\\tmp.txt") #Renaming a directory
+os.chdir("PythonTestFolder") 
+os.getcwd()
+os.chdir("C:\\Users\\vk4cs\\OneDrive\\Desktop\\")
+os.getcwd()
+os.remove("PythonTestFolder\\tmp.txt")
+os.rmdir("PythonTestFolder")
+
+########Pickling: Writing/Reading an object to a file..............
+import pickle
+dict1 = {1:"One",2:"Two",3:"Three"}
+os.getcwd()
+f = open("data.pickle","wb")
+pickle.dump(dict1,f)
+f.close()
+
+f = open("data.pickle","rb")
+pickle.load(f)
+f.seek(0)
+dic2 = pickle.load(f)
+dic2
+dic2[2]

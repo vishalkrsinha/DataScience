@@ -7,6 +7,7 @@
      #e.g. cmd prompt->Admin rights->pip install numpy
 #4. We can work on Python through command prompt as well. 
     #Just write Python - it will come in Python mode. To get out of Python mode - Ctrl+Z+Enter
+#5. To run a python file from command prompt: cmd->python abc.py
     
 
 import sys

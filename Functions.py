@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug  7 23:11:27 2018
-
-@author: vk4cs
-"""
-
 #System defined functions..
 s = "this is a string"
 len(s)

@@ -1,0 +1,13 @@
+#Tips...
+#1. Python looks for libraries/packages in sys.path defined in 'sys' library
+     #e.g. import sys
+     #     sys.path
+#2. There are a list of packages at different paths where python looks for a library. We can copy our python file there & can access it.
+#3. How to install/add more packages on our system through PIP?
+     #e.g. cmd prompt->Admin rights->pip install numpy
+#4. We can work on Python through command prompt as well. 
+    #Just write Python - it will come in Python mode. To get out of Python mode - Ctrl+Z+Enter
+    
+
+import sys
+sys.path

@@ -1,0 +1,5 @@
+#Functions are mini-programs in our program
+#Print() displays the value passed to it
+#input() lets user type in a value
+#len() takes a string value & returns an integer value of the string's length
+#int(), float(), and str() convert value data types

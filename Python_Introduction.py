@@ -1,10 +1,17 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jul 30 21:10:55 2018
+#####Tips:
+#1. IDLE is an editor, can also be used to write Python applications.
+#2. Expressions = Values + Operators
+#3. To get any help on Python, we can use following options:
+  #a. Stackoverflow
+  #b. Pastebin.com
+  #c. gist.github.com
 
-@author: vk4cs
-"""
+#Expression evaluation
+'Hello' #Output: 'Hello'
+2+2 #Output: 4
+250//2 #Output: 125
 
+  
 #Multiple variable declarartion
 a,b,c = 1,2,"your_name"
 
@@ -37,3 +44,12 @@ a.find("google") #Result: 0
 a.islower() #Result: True
 a = "this is me playing cricket on a cricket ground"
 a.replace("cricket","football") #Result: 'this is me playing football on a football ground'
+
+#String concatenation
+test = 'Hello'
+test + ' World' #Output: 'Hello world'
+
+#String Multiplication
+'Vishal ' * 11 #Output: 'Vishal Vishal Vishal Vishal Vishal Vishal Vishal Vishal Vishal Vishal Vishal '
+
+'Hello'+'!'*10 #Output: 'Hello!!!!!!!!!!'

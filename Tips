@@ -15,3 +15,8 @@
 #An elif (that is, "else if") statement can follow an if statement. Its block executes if its condition is True and all of the previous conditions have been False.
 #An else statement comes at the end. It's block is executed if all of the previous conditions have been False.
 #The values 0, 0.0, and the empty string sre considered to be Falsey values. When used in conditions they are considered False. We can always see for ourself which values are Truthy or Falsey by pasing them to the bool() function.
+
+#When the execution reaches the end of a while statement's block, it jumps back to the start to re-check the condition.
+#Press Ctrl+C to interrupt an infinite loop.
+#A break statement causes the execution to immediately leave the loop, without re-checking the condition.
+#A continue statement causes the execution to immediately jump back to the start of the loop & re-check the condition.

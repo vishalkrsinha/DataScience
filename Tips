@@ -24,3 +24,8 @@
 #for loops will loop a specific no. of times.
 #The range() function called with one, two, or three arguments.
 #break & continue can be used in for loops.
+
+#You can import modules & get access to new functions.
+#The modules that come with Python are called the standard library, but you can also install 3rd party modules using the pip tool. e.g. pyperclip.
+#The sys.exit() function will immediately quit your program.
+#The pyperclip 3rd party module has copy() & paste() functions for reading & writing text to the clipboard.

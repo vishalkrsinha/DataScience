@@ -95,3 +95,33 @@ list('Hello') #output: ['H','e','l','l','o']
 
 #You can get multiple items from the list using a slice.
 #You can convert a value into a list by passing it to the list() function.
+
+
+##########################For loops with Lists, Multiple Assignments, & Augmented Operators......
+list(range(4)) #output: [0,1,2,3]
+
+cat =   ['fat','orange','loud']
+size=cat[0]
+color = cat[1]
+disposition = cat[2]
+
+size, color, disposition = cat
+size #output: 'fat'
+color #output: 'orange'
+disposition #output: 'loud'
+
+#Multiple Assignments:
+size, color, disposition = 'skinny','black','quiet'
+
+#Swapping of items:
+a = 'AAA'
+b = 'BBB'
+a,b = b,a
+#Output: a = 'BBB' , b ='AAA'
+
+#Augmented assignment....
+a = 5
+a+=1 #output: 6
+
+#For loops technically iterate over the values in a list
+# The range() function returns a list-like value, which can be passed to the list() function if you need an actual list value.

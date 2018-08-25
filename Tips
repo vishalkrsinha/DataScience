@@ -29,3 +29,15 @@
 #The modules that come with Python are called the standard library, but you can also install 3rd party modules using the pip tool. e.g. pyperclip.
 #The sys.exit() function will immediately quit your program.
 #The pyperclip 3rd party module has copy() & paste() functions for reading & writing text to the clipboard.
+
+########User Defined Functions##############
+#Functions are like like a mini-program inside your program.
+#The main point of functions is to get rid of duplicate code.
+#The def statement defines a function.
+#The input to functions are arguments. The output is the return value.
+#The parameters are the variables in between the function's parentheses in the def statement.
+#The return value is specified using the return statement.
+#Every function has a return value. If the function does not have a return statement, the default return value is None. 
+#Keyword arguments to functions are usually for optional arguments. The print() function has keyword arguments end & sep. e.g.
+  #>>> print('cat','dog','mouse',sep='FRIENDS') #output: catFRIENDSdogFRIENDSmouse
+  #print('Hello',end='') print(' World') #output: Hello World

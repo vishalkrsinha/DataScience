@@ -49,3 +49,16 @@
 #Code in the global scope can't use any local variables.
 #Code in a function's local scope can't use variables in any another function's local scope.
 #If there's an assignment statement for a variable in a function, that is a local variable.
+
+###############################Try-except block...................
+#A divide-by-zero error happens when Python divides a number by zero.
+#Errors cause the program to crash.
+#An error that happens inside a try block will cause code in the except block to execute. That code can handle the error or display a message to the user so that the program can keep going.
+#e.g. numCats=input()
+#try:
+#  if numCats>=4:
+#    print("sdfdsf")
+#  else:
+#    print("dffjdfhsd")
+# except ValueError:
+#  print("You didn't enter a number")

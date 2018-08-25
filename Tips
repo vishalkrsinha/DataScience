@@ -41,3 +41,11 @@
 #Keyword arguments to functions are usually for optional arguments. The print() function has keyword arguments end & sep. e.g.
   #>>> print('cat','dog','mouse',sep='FRIENDS') #output: catFRIENDSdogFRIENDSmouse
   #print('Hello',end='') print(' World') #output: Hello World
+
+####################Global & local scopes.................
+#A scope can be thought of as an area of the source code, and as a container of variables.
+#The global scope is code outside of all functions. Variables assigned here are global variables. 
+#Each function's code is in its own local scope. Variables assigned here are local variables.
+#Code in the global scope can't use any local variables.
+#Code in a function's local scope can't use variables in any another function's local scope.
+#If there's an assignment statement for a variable in a function, that is a local variable.

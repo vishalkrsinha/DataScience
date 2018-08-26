@@ -136,3 +136,26 @@ a+=1 #output: 6
 #list.sort(), list.sort(reverse=True) methods to sort in ascending & descending order. 
 # if a list containg hyrid data type items & then if we try to sort it will throw 'TypeError' exception. REASON: Python doesn't use alphabetical orderto sort rather uses 'ASCII-betical' order.
   #So to sort normally, pass key =str.lower. e.g. spam = ['a','z','A','Z'], spam.sort() => ['A','Z','a','z'], spam.sort(key = str.lower)=>['A','a','Z','z']
+
+
+
+###############################Similarities between Lists & Strings.............
+#name = "Zophie" 
+#'Zo' in name => True, 'xxx' in name=> False
+#Strings can do a lot of the same things lists can do, but strings are immutable. 
+#Immutable values like strings & tuples can't be modified "in place"
+  e.g. name[3] = 'X' => TypeError: 'str' object does not support item assignment [String in Python are immutable, they can't be changed]
+#Mutable values like lists can be modified in place. 
+#Variables don't contain lists, they contain references to lists.
+#When passing a list argument to a function, you are actually passing a list reference.
+#Changes made to a list in a function will affect the list outside the function.
+#deepcopy: import copy, cheese = copy.deepcopy(spam), cheese[3] = "dsfdjkf", cheese[3] now not equals to spam[3]
+
+#Line continuation.........
+spam = ["apple",
+        'orange',
+        'mango']
+
+print("Hi, my name is "+\
+      "Vishal Kumar") =>Hi, my name is Vishal Kumar
+

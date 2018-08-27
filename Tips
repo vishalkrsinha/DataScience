@@ -159,3 +159,13 @@ spam = ["apple",
 print("Hi, my name is "+\
       "Vishal Kumar") =>Hi, my name is Vishal Kumar
 
+
+########################################Dictionary....................
+#Dictionaries are mutable. Variables hold references to dictionary values, not the dictionary value itself.
+#A dictionary doesn't have an order.Dictionaries are unordered. There is no "first" key-value pair in a dictionary. i.e. eggs = {'name':'gfhj','species':'Human','age':'23'}, ham = {'age':'23','species':'Human','name':'gfhj'}, eggs==ham=>True
+#The get() method can return a default value if a key doesn't exist. e.g. eggs = {'name':'gfhj','species':'Human','age':'23'},  eggs.get('age',0)=>23;;;; eggs.get('color','')=>''
+  #Application: to have default value of items. e.g. picnicItems = {'apples':5,'cups':2}, print('I am bringing '+str(picnicItems.get('napkin',0)))+'napkins to the picnic.')=> I am bringing 0 nakins to the picnic
+  #If we don't use get() method here rather picnicItems['napkins']=> Exception: 'KeyError'
+#The setdefault() method can set a value if a key doesn't exist. e.g. eggs = {'name':'gfhj','species':'Human','age':'23'}, eggs.setdefault('napkin',50)=>eggs = {'name':'gfhj','species':'Human','age':'23','napkin':50}
+  #Setting Default again will not change the value again as it is immutable.
+#The pprint modules's pprint() "pretty print" function can display a dictionary value cleanly. The pformat() function returns a string value of this output.

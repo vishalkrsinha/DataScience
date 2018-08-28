@@ -53,3 +53,46 @@ test + ' World' #Output: 'Hello world'
 'Vishal ' * 11 #Output: 'Vishal Vishal Vishal Vishal Vishal Vishal Vishal Vishal Vishal Vishal Vishal '
 
 'Hello'+'!'*10 #Output: 'Hello!!!!!!!!!!'
+
+
+#Join.....................................
+','.join(['cats','rats','bats'])
+print('\n\n'.join(['cats','rats','bats']))
+
+#Split....................................
+'My name is Vishal'.split()
+'My name is Vishal'.split('m')
+
+#rjust, ljust, center
+'Hello'.ljust(10)
+'Hello'.rjust(10)
+
+'Hello'.ljust(10,'*')
+'Hello'.rjust(10,'*')
+
+'Hello'.center(10)
+'Hello'.center(10,'*')
+
+#strip, lstrip, rstrip
+spam = 'Hello'.center(10)
+spam.strip() #It does not strip in place rather creates a brand new string
+spam
+
+spam.lstrip()
+spam.rstrip()
+
+'SpamSpamBaconSpamEggsSpamSpam'.strip('ampS')
+
+#replace........
+spam = 'Hello there!'
+spam.replace('e','XYZ')
+
+#Pyperclip - copy/paste
+##########Installing pyperclip...........
+##conda: conda install -c bryanwweber pyperclip 
+##IDLE: 
+    #cmd->cd "Program Files\Python 3.5\Scripts"
+    #pip.exe install pyperclip
+import pyperclip
+pyperclip.copy('Hello!!!!!!!')
+pyperclip.paste()

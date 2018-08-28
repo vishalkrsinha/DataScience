@@ -92,3 +92,11 @@ myCat['coloqr']
 
 if 'coloqr' in myCat:
     print(myCat['coloqr'])
+
+###Appending items to Dictionary
+allCats=[]
+allCats.append({'name':'Zophie','age':7,'color':'gray'})
+allCats.append({'name':'Pooka','age':5,'color':'black'})
+allCats.append({'name':'Fat-tail','age':7,'color':'gray'})
+allCats.append({'name':'???','age':-1,'color':'orange'})
+allCats

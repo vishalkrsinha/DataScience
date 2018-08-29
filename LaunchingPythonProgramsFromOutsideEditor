@@ -1,0 +1,28 @@
+Shebang line: The 1st line of all your Python programs should be a shebang line, which tells your computer that you want Python to execute this program. The shebang line begins with #!, but the rest depends on your OS.
+    -On Windows, the shebang line is #! python3.
+    -On OS X, the shebang line is #! /usr/bin/env python3.
+    -On Linux, the shebang line is #! /usr/bin/python3
+
+You will be able to run Python scripts from IDLE/Spyder without the shebang line, but the line is needed to run from the command line.
+
+The shebang line tells your computer that you want to run the script using Python3.
+    -On Windows, you can bring up the Run dialog by pressing Win+R. e.g.
+        cmd->py.exe c:\..\hello.py # To pause: use pause.exe
+        OR,
+        Win+R->py c:\..\hello.py 
+    -A batch file can save you a lot of typing by running multiple commands.e.g. hello.bat
+        @py C:\Users\AI\MyPythonScripts\hello.py %* #This 1st line is going to run the python script. The @ symbol tells WIndows that it does not want to display the this statement when you run this program. %* is for command line arguments, if any. 
+        @pause #cmd command to wait for users key to terminate.
+        #This batch file can directly be run through Win+R->c:\..\hello.bat
+        #If we don't have anything to display on console we can use below statement in batch file:
+        @pyw C:\Users\AI\MyPythonScripts\hello.py %* #No need of pause command here.
+    
+    -You'll need to add the MyPythonScripts folder to the PATH environment variable first. Then no need to give path for running outside the IDLE/Spyder editors. e.g.
+    Win+R->py hello.py #etc.
+    
+    -Command-line arguments can be read in the sys.argv list.e.g.
+    import sys
+    print ('Hello world')
+    print(sys.argv)
+    
+    WIn+R->hello arg1 arg2 arg3 #Output: ['Hello world','arg1','arg2','arg3']

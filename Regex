@@ -1,0 +1,82 @@
+########Regular Expressions are huge time savers.
+
+def isPhoneNumber(phoneNumber): #Format: 415-555-8978
+    if len(phoneNumber)!=12:
+        return False #Not phone number-sized
+    for i in range(0,3):
+        if not phoneNumber[i].isdecimal():
+            return False #no area code
+    if phoneNumber[3]!='-':
+        return False #missing dash
+    for i in range(4,7):
+        if not phoneNumber[i].isdecimal():
+            return False #no 1st 3 digits code
+    if phoneNumber[7]!='-':
+        return False #missing 2nd dash
+    for i in range(8,12):
+        if not phoneNumber[i].isdecimal():
+            return False #missing last 4 digits code
+    return True
+
+print(isPhoneNumber('415-765-6789'))
+
+######Application of above function...
+message = 'Call me 415-765-5689 tomorrow, or at 415-765-3442 for my office line.'
+foundNumber = False
+for i in range(len(message)):
+    chunk = message[i:i+12]
+    if isPhoneNumber(chunk):
+        print('Phone number found: '+chunk)
+        foundNumber = True
+if not foundNumber:
+    print('Could not find any phone numbers')
+    
+###########Regular Expressions:
+    #Regular expressions are mini-language for specifying text patterns. Writing code to do pattern matching without regular expressions is a huge pain.
+    #Regex strings often use \ backslashes (like \d), so they are often raw strings:r'\d'
+    #Import the re module first.
+    #Call the re.compile() function to create a regex object.
+    #Call the regex object's search() method to create a match object.
+    #Call the match object's group() method to get the matched string.
+    #\d is the regex for a numeric digit character
+import re
+phoneRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+match = phoneRegex.search('Call me 415-765-5689 tomorrow, or at 415-765-3442 for my office line.')
+print(match.group())
+
+#Findall searched items not just the 1st time.
+phoneRegex.findall('Call me 415-765-5689 tomorrow, or at 415-765-3442 for my office line.')
+
+#sub-groups....
+phoneRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
+match = phoneRegex.search('Call me 415-765-5689 tomorrow, or at 415-765-3442 for my office line.')
+match.group(1)
+match.group(2)
+
+#A different phone-number format pattern : (415) 555-4242
+phoneRegex = re.compile(r'\(\d\d\d\) \d\d\d-\d\d\d\d')
+match = phoneRegex.search('Call me (415) 765-5689 tomorrow, or at (415) 765-3442 for my office line.')
+match.group()
+
+###########Pipe characters....
+batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
+match = batRegex.search('Batmobile lost a wheel')
+match.group()
+
+    #if group() method does not have any matching regex, it throws an exception [AttributeError: 'NoneType' object has no attribute 'group']
+    match = batRegex.search('Batmotorcycle lost a wheel')
+    match.group()
+    
+    #How to handle this exception:
+    match = batRegex.search('Batmotorcycle lost a wheel')
+    if match != None: #search() returns None, if fails to find a matching regex
+        match.group()
+    else:
+        print('no match found...')
+
+#Recap: 
+        #Groups are created in Regex strings with parentheses.
+        #The 1st set of parentheses is group1, the 2nd is 2, and so on.
+        #Calling group() or group(0) returns the full matching string, group(1) returns group 1's matching string, & so on.
+        #Use \( & \) to match literal parentheses in the regex string.
+        #The | pipe can match one of many possible groups.

@@ -80,3 +80,157 @@ match.group()
         #Calling group() or group(0) returns the full matching string, group(1) returns group 1's matching string, & so on.
         #Use \( & \) to match literal parentheses in the regex string.
         #The | pipe can match one of many possible groups.
+
+################# 0/1/more no. of matches.....
+    # 0/1 match...
+import re
+batRegex = re.compile(r'Bat(wo)?man')
+match = batRegex.search('The Adventures of Batman')
+match.group()
+
+match = batRegex.search('The Adventures of Batwoman')
+match.group()
+
+match = batRegex.search('The Adventures of Batwowowoman')
+if(match!=None):
+    match.group()
+else:
+    print('match not found!')
+    
+############Tips: If we wanted to a regex object for the text "dinner?" (with the question mark), we would call: 
+        #re.compile(r'dinner\?') '''Not the slash in \?'''
+        #In above case, "dinner" is not optional, we are literally looking for a question mark: "dinner?"
+    ####Applying 0/1 match with phonenumber pattern.........
+phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d') #Making area code optional
+match = phoneRegex.search('Call me 765-5689 tomorrow.')
+match.group()
+
+match = phoneRegex.search('Call me 123-765-5689 tomorrow.')
+match.group()
+
+    #####Applying 0 or more matching patterns...
+batRegex = re.compile(r'Bat(wo)*man')
+match = batRegex.search('The Adventures of Batman')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+
+match = batRegex.search('The Adventures of Batwoman')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+
+match = batRegex.search('The Adventures of Batwowowowoman')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+        #####Applying 1 or more matching patterns...
+batRegex = re.compile(r'Bat(wo)+man')
+match = batRegex.search('The Adventures of Batman')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+
+match = batRegex.search('The Adventures of Batwoman')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+
+match = batRegex.search('The Adventures of Batwowowowoman')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+    ######
+regex = re.compile(r'\+\*\?')
+match = regex.search('I learned about +*? regex syntax')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+regex = re.compile(r'(\+\*\?)+')
+match = regex.search('I learned about +*?+*?+*?+*?+*? regex syntax')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+#Exact no. of match.........
+haRegex = re.compile(r'(Ha){3}')    
+match = haRegex.search('He said "HaHaHa"')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+phoneRegex = re.compile(r'((\d\d\d-)?\d\d\d-\d\d\d\d(,)?){3}') #Exact 3 matches of phone numbers, optionally separated by comma
+match = phoneRegex.search('My numbers are 765-5689,123-546-6424,776-534-8744 tomorrow.')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+#Minimum/Maximum no. of matches... e.g. min 3, max 5 matches/repetitions....
+haRegex = re.compile(r'(Ha){3,5}')    
+match = haRegex.search('He said "HaHaHa"')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+
+match = haRegex.search('He said "HaHaHaHa"')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+match = haRegex.search('He said "HaHaHaHaHa"')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+match = haRegex.search('He said "HaHaHaHaHaHaHaHa"')
+if(match!=None):
+    print(match.group()) #If it contains more matches, still will return max no. of matches with success
+else:
+    print('match not found!')
+    
+    #escaping min/max bound...(no min/max bound)
+haRegex = re.compile(r'(Ha){,5}')    #means min=0, max=5  
+match = haRegex.search('He said "HaHaHa"')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+haRegex = re.compile(r'(Ha){3,}')    #means min=3, max= any no. of times  
+match = haRegex.search('He said "HaHaHa"')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+    ########Greedy match....()By default way of searching done by Regex
+digitRegex = re.compile(r'(\d){3,5}')
+match = digitRegex.search('1234567890')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')
+    
+    ########Non-Greedy match....
+digitRegex = re.compile(r'(\d){3,5}?')
+match = digitRegex.search('1234567890')
+if(match!=None):
+    print(match.group())
+else:
+    print('match not found!')

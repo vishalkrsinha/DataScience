@@ -234,3 +234,102 @@ if(match!=None):
     print(match.group())
 else:
     print('match not found!')
+
+###################################################################################################################
+###################################Regex character classes & the findall() method.....
+import re
+phoneRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d') #r - is rawstring here
+phoneRegex
+phoneRegex.search('Call me 415-765-5689 tomorrow, or at 415-765-3442 for my office line.') #search() returns Match objects.
+
+    #The regex method findall() is passed a string, and returns all matches in it, not just the 1st match.
+    #If the regex has 0 or 1 group, findall() returns a list of strings.
+phoneRegex.findall('Call me 415-765-5689 tomorrow, or at 415-765-3442 for my office line.') # findall() returns a list of strings for 0 or 1 group.
+
+    #If the regex has 2 or more groups, findall() returns a list of tuples of strings.
+phoneRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
+phoneRegex.findall('Call me 415-765-5689 tomorrow, or at 415-765-3442 for my office line.') # findall() returns a list of tuple of strings for 2 or more groups.
+
+phoneRegex = re.compile(r'((\d\d\d)-(\d\d\d-\d\d\d\d))')
+phoneRegex.findall('Call me 415-765-5689 tomorrow, or at 415-765-3442 for my office line.') # returns list of 2 tuples each having 3 strings.
+
+    #\d is a shorthand character class that matches digits. \w matches word characters, \s matches whitespaces characters.
+digitRegex = re.compile(r'\d') #==digitRegex = re.compile(r'(0|1|2|3|4|5|6|7|8|9)')
+    
+lyrics = '12 Drummers Drumming, 11 Pipers Piping, 10 Lords a Leaping, 9 Ladies Dancing, 8 Maids a Milking, 7 Swans a Swimming, 6 Geese a Laying, 5 Golden Rings, 4 Calling Birds, 3 French Hens, 2 Turtle Doves, and a Partridge in a Pear Tree'
+xmasRegex = re.compile(r'\d+\s\w+')
+xmasRegex.findall(lyrics)
+
+#The uppercase shorthand character classes \D, \W, \S match characters that are NOT digits, word characters, and spaces.
+#You can make your own character classes with square brackets: [aeiou]
+vowelRegex = re.compile(r'[aeiouAEIOU]')
+vowelRegex.findall('Robocop eats baby food')
+
+vowelRegex = re.compile(r'[aeiouAEIOU]{2}')
+vowelRegex.findall('Robocop eats baby food')
+
+#A ^ caret makes it a negative character class, matching anything not in the brackets: [^aeiou]
+consonantRegex = re.compile(r'[^aeiouAEIOU]')
+consonantRegex.findall('Robocop eats baby food')
+
+
+######################################################################################################################
+####################Regex Dot-Star & the Caret /Dollar characters..................
+#^ means the string must start with the pattern, $ means the string must end with the pattern. Both means the entire string must match the pattern.
+import re
+beginsWithHelloRegex = re.compile(r'^Hello')
+beginsWithHelloRegex.search('Hello there!')
+
+beginsWithHelloRegex.search('He said "Hello!"') == None
+
+
+endsWithWorldRegex = re.compile(r'world!$')
+endsWithWorldRegex.search('Hello world!')
+
+endsWithWorldRegex.search('Hello world!sdsdSDdD')==None
+
+allDigitsRegex = re.compile(r'^\d+$')
+allDigitsRegex.search('34324341232432')
+
+allDigitsRegex.search('3432434x1232432') == None
+
+#The . dot is a wildcard; it matches anything except newlines.
+atRegex = re.compile(r'.at')
+atRegex.findall('The cat in the hat sat on the flat mat.')
+
+atRegex = re.compile(r'.{1,2}at')
+atRegex.findall('The cat in the hat sat on the flat mat.')
+
+'First Name: Al Last Name: Sweigart'.find(':')
+'First Name: Al Last Name: Sweigart'.find(':') + 2
+'First Name: Al Last Name: Sweigart'[12:]
+
+nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
+nameRegex.findall('First Name: Al Last Name: Sweigart')
+
+    #(.*) is greedy, (.*?) is non-greedy
+serve = '<To serve humans> for dinner.>'
+nongreedy = re.compile(r'<(.*?)>')
+nongreedy.findall(serve)
+
+greedy = re.compile(r'<(.*)>')
+greedy.findall(serve)
+
+#Pass re.DOTALL as the 2nd argument to re.compile() to make the . dot match newlines as well.
+prime = 'Serve the public trust.\nProtect the innocent.\nUpload the law.'
+dotstar = re.compile(r'.*')
+dotstar.search(prime)
+
+dotstar = re.compile(r'.*',re.DOTALL)
+dotstar.search(prime)
+
+
+vowelRegex = re.compile(r'[aeiou]')
+vowelRegex.search('Al, why does your programming book talk about Robocop so much?')
+
+vowelRegex = re.compile(r'[aeiou]')
+vowelRegex.findall('Al, why does your programming book talk about Robocop so much?')
+
+vowelRegex = re.compile(r'[aeiou]',re.I)
+vowelRegex.findall('Al, why does your programming book talk about Robocop so much?')
+#Pass re.I as the 2nd argument to re.compile() to make the matching case-insensitive.

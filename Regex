@@ -333,3 +333,17 @@ vowelRegex.findall('Al, why does your programming book talk about Robocop so muc
 vowelRegex = re.compile(r'[aeiou]',re.I)
 vowelRegex.findall('Al, why does your programming book talk about Robocop so much?')
 #Pass re.I as the 2nd argument to re.compile() to make the matching case-insensitive.
+
+
+##############################################################################
+################Regex sub() method and verbose mode...........
+#The sub() regex method substitutes the matches with some other text.
+import re
+namesRegex = re.compile(r'Agent \w+')
+namesRegex.findall('Agent Alice gave the secret documents to Agent Bob.')
+namesRegex.sub('REDACTED','Agent Alice gave the secret documents to Agent Bob.')
+
+#Using \1, \2, and so will substitute group 1, 2, etc in the regex pattern.
+namesRegex = re.compile(r'Agent (\w)\w*')
+namesRegex.findall('Agent Alice gave the secret documents to Agent Bob.')
+namesRegex.sub(r'Agent \1****','Agent Alice gave the secret documents to Agent Bob.')

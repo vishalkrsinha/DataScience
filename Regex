@@ -347,3 +347,23 @@ namesRegex.sub('REDACTED','Agent Alice gave the secret documents to Agent Bob.')
 namesRegex = re.compile(r'Agent (\w)\w*')
 namesRegex.findall('Agent Alice gave the secret documents to Agent Bob.')
 namesRegex.sub(r'Agent \1****','Agent Alice gave the secret documents to Agent Bob.')
+
+####VERBOSE.............
+#Passing re.VERBOSE lets you add whitespace and comments to the regex string passed to re.compile(). It helps to add details of your complex regex.
+import re
+re.compile(r'''
+           (\d\d\d-)|             # area code (without parentheses, with dash)
+           (\(\d\d\d\))           # -or- area code with parentheses and no dash
+           \d\d\d      # 1st 3 digits
+           -           # 2nd dash
+           \d\d\d\d    # last 4 digits     
+           \sx\d{2,4}  #extension, like x1234''',re.VERBOSE)
+
+#If you want to pass multiple arguments (re.DOTALL, re.IGNORECASE, re.VERBOSE), combine with them the | bitwise operator.           
+re.compile(r'''
+           (\d\d\d-)|             # area code (without parentheses, with dash)
+           (\(\d\d\d\))           # -or- area code with parentheses and no dash
+           \d\d\d      # 1st 3 digits
+           -           # 2nd dash
+           \d\d\d\d    # last 4 digits     
+           \sx\d{2,4}  #extension, like x1234''',re.VERBOSE|re.I|re.DOTALL)

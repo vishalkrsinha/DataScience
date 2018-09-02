@@ -367,3 +367,51 @@ re.compile(r'''
            -           # 2nd dash
            \d\d\d\d    # last 4 digits     
            \sx\d{2,4}  #extension, like x1234''',re.VERBOSE|re.I|re.DOTALL)
+
+
+#######################################################################################################################
+#######################Regex example program: A phone & email scraper
+#! python 3
+# TODO: Create a regex for phone numbers
+    #To install pyperclip from conda run following command.
+        #conda install -c bryanwweber pyperclip 
+           
+import re, pyperclip           
+phoneRegex = re.compile(r'''
+           #415-555-0000, 555-0000, (415) 555-0000, 555-0000 ext 12345, ext. 12345, x12345
+           
+           ((\d\d\d\)|(\(\d\d\d-\)))?          # area code (optional)
+           (\s|-)         # first separator 
+           \d\d\d         # first 3 digits
+           -              # separator
+           \d\d\d\d       # last 4 digits
+           ((((ext(\.)?\s)|x)   # extension word-part(optional)
+           (\d{2,5}))?         # extension number-part(optional)
+           ''',re.VERBOSE)     
+
+# TODO: Create a regex for email addresses
+    #Tip: We don't need to use escape character (\) inside [] - square bracket
+emailRegex = re.compile(r'''
+                        # some.+_thing@(\d{2,5}))?.com
+                        
+[a-zA-Z0-9_.+]+                        # name part
+@                                      # @ symbol
+[a-zA-Z0-9_.+]+                        # domain name part
+                        ''',re.VERBOSE)           
+           
+# TODO: Get the text off the clipboard
+text = pyperclip.paste()
+           
+# TODO: Extract the email/phone from this text
+phoneRegex = re.compile(r'((\d\d\d)-(\d\d\d-\d\d\d\d))')
+extractedPhone = phoneRegex.findall(text)
+extractedEmail = emailRegex.findall(text)
+
+allPhoneNumbers = []
+for phoneNumber in extractedPhone:
+    allPhoneNumbers.append(phoneNumber[0])
+print(allPhoneNumbers)
+
+# TODO: Copy the extracted email/phone to the clipboard
+results = '\n'.join(allPhoneNumbers) +'\n'+ '\n'.join(extractedEmail)
+pyperclip.copy(results)

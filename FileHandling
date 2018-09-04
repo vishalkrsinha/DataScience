@@ -44,6 +44,56 @@ os.getcwd()
 os.remove("PythonTestFolder\\tmp.txt")
 os.rmdir("PythonTestFolder")
 
+os.path.join('folder1','folder2','folder3','file.png') #os.path.join() method can also join strings to create a path string.
+os.path.sep #Tells what separator is used to combine a path
+
+os.getcwd() #Gives current working directory
+os.chdir('c:\\') #Changes the working directory
+os.getcwd()
+
+DELETE_THIS_FILE('sd.txt') #Compiler will assume the file here presents in current working directory
+
+os.chdir(r'C:\Users\vishalk\Desktop')
+os.getcwd()
+
+os.path.abspath('test.txt') #output: 'C:\\Users\\vishalk\\Desktop\\test.txt'
+os.path.abspath('..\\..\\..\\..\\test.txt') #output: 'C:\\test.txt' 
+os.path.abspath('..\\..\\..\\..\\..\\..\\..\\test.txt') #output: 'C:\\test.txt' . If number of ..\\ is more than pointing to root folder, it still points the root folder & no exception.
+
+os.path.isabs('..\\..\\test.txt') #output: False, as it doesn't contain the root folder
+os.path.isabs('c:\\folder1\\folder3')#output: True, as it contains the root folder
+
+os.path.relpath(r'c:\folder1\folder2\spam.png',r'c:\folder1')
+
+###Getting directory name (string excluding filename)....
+os.path.dirname(r'c:\folder1\folder2\spam.png') #output: 'c:\\folder1\\folder2'
+os.path.basename(r'c:\folder1\folder2\spam.png') #output: 'spam.png'
+
+os.path.exists(r'c:\folder1\folder2\spam.png') #False
+
+os.path.isfile(r'C:\Users\vishalk\Desktop\test.txt') #True, but file must physically exist at the mentioned path
+os.path.isfile(r'C:\Users\vishalk\Desktop') #False, as it's a folder not a file 
+
+os.path.isdir(r'C:\Users\vishalk\Desktop') #True, but dir must physically exist at the mentioned path
+os.path.isdir(r'C:\Users\vishalk\Desktop\test.txt') #False, as it's a file not a folder 
+
+os.path.getsize(r'C:\Users\vishalk\Desktop\test.txt') #get size in bytes
+
+os.listdir(r'C:\Users\vishalk\Desktop') #Lists all files & directories inside the mentioned path
+
+#Finding the total size of all files(not the folders) in a folder
+totalSize = 0
+for filename in os.listdir(r'C:\Users\vishalk\Desktop'):
+    if os.path.isfile(os.path.join(r'C:\Users\vishalk\Desktop',filename)):
+        continue
+    totalSize = totalSize + os.path.getsize(os.path.join(r'C:\Users\vishalk\Desktop',filename))
+
+
+os.makedirs(r'c:\delecious\walnut\wafles') # Creates the directory...
+
+############Tip: The . folder represents "this folder", the ..folder represents "the parent folder".
+
+
 ########Pickling: Writing/Reading an object to a file..............
 import pickle
 dict1 = {1:"One",2:"Two",3:"Three"}

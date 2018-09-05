@@ -144,3 +144,26 @@ shelfFile['cats'] #Output: ['Zophie','Pooka','Simon','Fat-tail','Cleo']
 list(shelfFile.keys()) #output: ['cats']
 list(shelfFile.values()) #output: [['Zophie','Pooka','Simon','Fat-tail','Cleo']]
 shelfFile.close()
+
+###########################Deleting Files.............
+#os.unlink() will permanently delete a file.
+import os
+os.unlink(r'C:\Users\vk4cs\OneDrive\Desktop\Delicious_Backup\Test1.txt')
+
+#os.rmdir() will delete an empty folder
+os.rmdir(r'C:\Users\vk4cs\OneDrive\Desktop\Delicious_Backup') #OSError: WinError 145 as directory not empty
+
+#shutil.rmtree() will delete a complete folder & all it's contents. So, be careful while using this function.
+import shutil
+shutil.rmtree(r'C:\Users\vk4cs\OneDrive\Desktop\Delicious_Backup') #Permanent deletion of entire folder
+
+#e.g.
+for filename in os.listdir(r'C:\Users\vk4cs\OneDrive\Desktop\Delicious'):
+    if filename.endswith('.txt'):
+        print (filename)
+        os.unlink(filename)
+
+#send2trash.send2trash() will send a file/folder to the recyclebin
+#Install send2trash through conda prompt(Admin mode) as: conda install sen2trash
+import send2trash
+send2trash.send2trash(r'C:\Users\vk4cs\OneDrive\Desktop\Delicious\Test1.txt')

@@ -23,6 +23,22 @@ f.seek(0)
 f.read(10)
 f.close()
 
+###################################Copying & Moving Files & Folders...
+import shutil
+shutil.copy(r'C:\Users\vk4cs\OneDrive\Desktop\myPlot.png',r'C:\Users\vk4cs\OneDrive\Desktop\Delicious') #Copies a file from source to destination. output: 'C:\\Users\\vk4cs\\OneDrive\\Desktop\\Delicious\\myPlot.png'
+
+shutil.copy(r'C:\Users\vk4cs\OneDrive\Desktop\myPlot.png',r'C:\Users\vk4cs\OneDrive\Desktop\Delicious\myPPPPPlot.png') 
+#Copies a file from source to destination with different name. output: 'C:\\Users\\vk4cs\\OneDrive\\Desktop\\Delicious\\myPPPPPlot.png'
+
+shutil.copytree(r'C:\Users\vk4cs\OneDrive\Desktop\Delicious',r'C:\Users\vk4cs\OneDrive\Desktop\Delicious_Backup') 
+#Copies a directory from source to destination. output: 'C:\\Users\\vk4cs\\OneDrive\\Desktop\\Delicious_Backup'
+
+shutil.move(r'C:\Users\vk4cs\OneDrive\Desktop\test.txt',r'C:\Users\vk4cs\OneDrive\Desktop\Delicious') 
+#Cut & paste a file from source to destination. output: 'C:\\Users\\vk4cs\\OneDrive\\Desktop\\Delicious\\test.txt'
+
+shutil.move(r'C:\Users\vk4cs\OneDrive\Desktop\Delicious\test.txt',r'C:\Users\vk4cs\OneDrive\Desktop\Delicious\Test1.txt') 
+#Renaming a file. output: 'C:\\Users\\vk4cs\\OneDrive\\Desktop\\Delicious\\test1.txt'
+
 ######Renaming/Removing files.........
 import os
 os.rename("C:\\Users\\vk4cs\\OneDrive\\Desktop\\FirstPythonFile.txt","C:\\Users\\vk4cs\\OneDrive\\Desktop\\myFirstPythonFile.txt")

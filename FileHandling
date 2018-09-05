@@ -1,6 +1,6 @@
 #######Writing a file.........
-f = open("C:\\Users\\vk4cs\\OneDrive\\Desktop\\FirstPythonFile.txt","w")#"w"/"a"
-f.write("Hello Python World!\nThis is my first file here...")
+f = open("C:\\Users\\vk4cs\\OneDrive\\Desktop\\FirstPythonFile.txt","w")#"w": Write mode, "a": Append mode
+f.write("Hello Python World!\nThis is my first file here...") #write method writes the string & returns the no. of bytes it has written like 12, 25 etc.
 f.close();
 
 #######Reading a file...........
@@ -12,10 +12,10 @@ f.readline()
 f.tell()
 f.readlines()
 f.tell()
-f.read()
+f.read()#output as string: e.g. 'Hello world!\nHow are you?'
 f.seek(0)
 f.read()
-f.readlines()
+f.readlines() #Returns a list of strings, different to read() that returns just the string. e.g. ['Hello world!\n','How are you?']
 f.seek(0)
 f.readlines()
 f.seek(0)

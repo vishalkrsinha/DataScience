@@ -1,5 +1,6 @@
 #######Writing a file.........
-f = open("C:\\Users\\vk4cs\\OneDrive\\Desktop\\FirstPythonFile.txt","w")#"w": Write mode, "a": Append mode
+f = open("C:\\Users\\vk4cs\\OneDrive\\Desktop\\FirstPythonFile.txt","w")#"w": Write mode, "a": Append mode, "r": Read mode (By default option)
+#Write, Append mode creates a new file, if not already exists
 f.write("Hello Python World!\nThis is my first file here...") #write method writes the string & returns the no. of bytes it has written like 12, 25 etc.
 f.close();
 
@@ -108,3 +109,22 @@ f.seek(0)
 dic2 = pickle.load(f)
 dic2
 dic2[2]
+
+
+##############################Shelve Module........
+#The shelve module can store Python values in a binary file.
+import shelve
+shelfFile = shelve.open('mydata')
+shelfFile['cats'] = ['Zophie','Pooka','Simon','Fat-tail','Cleo'] #It's kind of a dictionary with key-value pair
+shelfFile.close() #shelve creates 3 binary files: .bak, .dat, & .dir
+
+import os
+os.getcwd()
+
+#shelve.open() returns a dictionary-like shelf value.
+shelfFile = shelve.open('mydata')
+shelfFile['cats'] #Output: ['Zophie','Pooka','Simon','Fat-tail','Cleo']
+
+list(shelfFile.keys()) #output: ['cats']
+list(shelfFile.values()) #output: [['Zophie','Pooka','Simon','Fat-tail','Cleo']]
+shelfFile.close()

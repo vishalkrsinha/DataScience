@@ -65,3 +65,30 @@ def switchLights(intersection):
 print(market_2nd)
 switchLights(market_2nd)
 print(market_2nd)
+
+
+#######################################################################################################################
+############################## Logging.............
+#The logging module displays the logging messages. 
+#Log messages create a breadcrumb trail of what our program is doing.
+#After calling basicConfig() to set up logging, call logging.debug() to create a log message.
+import logging
+logging.basicConfig(filename=os.path.join(os.getcwd(), 'myfilelog.txt'),level=logging.DEBUG,format = '%(asctime)s - %(levelname)s - %(message)s') #To write logging details in a file instead of displaying it on screen, use filename
+#logging.disable(logging.CRITICAL) ###To disable all loggings, already written in code.
+
+logging.debug('Start of program')
+def factorial(n):
+    logging.debug('Start of factorial(%s)'%(n))
+    total = 1
+    for i in range(1, n+1):
+        total *= i
+        logging.debug('i is %s, total is %s'%(i, total))
+    
+    logging.debug('Return value is %s'%(total))
+    return total
+
+print(factorial(5))
+logging.debug('End of program')
+
+#Don't use print() for log messages: it's hard to remove them all when you are done debugging.
+#The 5 log levels are: DEBUG, INFO, WARNING, ERROR, & CRITICAL. DEBUG is at lowest level

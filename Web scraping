@@ -9,3 +9,22 @@ else:
     address = pyperclip.paste()
     
 wb.open(r'https://www.google.com/maps/place/'+address)
+
+##########################################################################################################################
+########################### Downloading from the web with the requests module
+
+#The requests module is a 3rd-party module for downloading web pages and files.
+import requests
+res = requests.get(r'https://automatetheboringstuff.com/files/rj.txt') #requests.get() returns a Response object.
+res.status_code #Code = 200 means everything is ok.
+len(res.text) #res.text: Downloads the page content
+print(res.text[:500]) 
+res.raise_for_status() #gives error if download fails, else nothing on successful
+readFile = open('RomeoAndJuliet.txt','wb')
+for chunk in res.iter_content(100000): #You can save a downloaded file to our hard drive with calls to the iter_content() method.
+    readFile.write(chunk)
+readFile.close()
+
+badRes = requests.get(r'https://automatetheboringstuff.com/hjgfjyhgkjg')
+badRes.raise_for_status() #output: HTTPError: 404 Client Error:
+playFile = open('LailaMajnu.txt','wb')

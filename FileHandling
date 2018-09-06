@@ -167,3 +167,24 @@ for filename in os.listdir(r'C:\Users\vk4cs\OneDrive\Desktop\Delicious'):
 #Install send2trash through conda prompt(Admin mode) as: conda install sen2trash
 import send2trash
 send2trash.send2trash(r'C:\Users\vk4cs\OneDrive\Desktop\Delicious\Test1.txt')
+
+
+######################################################################################################################
+#######################################      Walking a Directory..........
+import os
+import shutil
+
+#os.walk() returns 3 itesm Folder, SubFolders, & Files...
+for folder, subfolders, files in os.walk(r'F:\Machine Learnings\ExamplesFromWeb'): 
+    print ('Folder: '+folder)
+    print ('Subfolder in Folder: '+folder+' are: '+str(subfolders))
+    print ('Files in Folder: '    +folder+' are: '+str(files))
+    print()
+
+    for subfolder in subfolders:
+        if 'fish' in subfolder:
+            os.rmdir(subfolder)
+            
+    for file in files:
+        if(file.endswith('.py')):
+            shutil.copy(os.path.join(folder,file),os.path.join(folder,file+'.backup'))

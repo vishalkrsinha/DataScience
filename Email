@@ -1,0 +1,13 @@
+# =============================================================================
+# Sending Emails
+# =============================================================================
+import smtplib
+conn = smtplib.SMTP('smtp.gmail.com',587) #587 is the port no. for gmail
+type(conn)
+conn
+conn.ehlo()#250: Response code (250 is okay, we are connected)
+conn.starttls() #starttls() begins encryption
+#https://www.google.com/settings/security/lesssecureapps: Turn ON
+conn.login('vk4cse@gmail.com','abdacadabda') #We can have app specific password. Different passwords for mobile,laptop, computer, tab etc. https://support.google.com/accounts/answer/185833?hl=en
+conn.sendmail('vk4cse@gmail.com','vk4cse@gmail.com','Subject: AI-link\n\nhttps://www.analyticsindiamag.com/the-gaming-industry-is-revolutionising-artificial-intelligence-one-win-at-a-time/?utm_medium=onesignal&utm_source=onesignal')
+conn.quit()

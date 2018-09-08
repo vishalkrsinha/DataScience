@@ -1,0 +1,68 @@
+# =============================================================================
+# Reading Excel Spreadsheets
+# =============================================================================
+#The OpenPyXL 3rd-party module handles Excel spreadsheets (.xlsx files).
+import openpyxl, os
+os.getcwd()
+
+#openpyxl.load_workbook(filename) returns a Workbook object.
+workbook = openpyxl.load_workbook('example.xlsx')
+type(workbook)
+
+#get_sheet_names()[deprecated. Use sheetnames] and get_sheet_by_name()[deprecated. wb['sheetname']] help get Worksheet objects.
+workbook.sheetnames #listing all sheets available in the workbook
+
+sheet = workbook['Sheet1']
+type(sheet)
+
+#The square brackets in sheet['A1'] get Cell objects.
+cell = sheet['A1']
+
+#Cell objects have a value member variable with the content of that cell.
+cell.value
+str(cell.value)
+str(sheet['A1'].value)
+
+sheet['B1'].value
+sheet['C1'].value
+str(sheet['C1'].value)
+
+#The cell() method also returns a Cell object from a sheet.
+sheet.cell(row=1,column=2)
+sheet['B1']
+
+for i in range(1,8):
+    print(i, sheet.cell(row=i, column=2).value)
+
+
+
+# =============================================================================
+# Editing Excel Spreadsheets
+# =============================================================================
+#Changing a cell's value is done using the square brackets, just like changing a value in a list or dictionary
+import openpyxl
+wb = openpyxl.Workbook() #Creates a new workbook with a single sheet (Sheet), by default get created with the workbook
+wb.sheetnames
+sheet = wb['Sheet']
+sheet['A1'].value
+sheet['A1'].value == None
+
+sheet['A1'] = 42
+sheet['A2'] = 'Hello'
+
+import os
+os.getcwd()
+wb.save('testexample.xlsx') #Saves the cell data updates to the workbook
+
+sheet2 = wb.create_sheet() #Creates a new sheet at the end - in current workbook
+wb.sheetnames #output: ['Sheet', 'Sheet1']
+
+#We can view and modify a sheet's name with it's title member variable.
+sheet2.title #sheet name: 'Sheet1
+sheet2.title = 'My New Sheet Name' #Updating the sheet name
+wb.sheetnames
+wb.save('testexample.xlsx')
+
+#Changes we make to the workbook object can be saved with the save() method.
+wb.create_sheet(title = 'My Other Sheet', index = 1)
+wb.save('testexample.xlsx')

@@ -113,3 +113,59 @@ writer.write(outputFile)
 outputFile.close()
 pdfFile1.close()
 pdfFile2.close()
+
+
+# =============================================================================
+# Reading & Editing Word Documents
+# =============================================================================
+#Python-Docx can read and write .docx word files.
+#Install it through command: pip install python-docx
+import docx
+
+#Open a word file with docx.Document()
+d = docx.Document('demo.docx')
+
+#Access one of the paragraph objects from the paragraphs member variable, which is a list of paragraph objects.
+d.paragraphs
+d.paragraphs[0]
+
+#Paragraph objects have a text member variable containing the text as a string value.
+d.paragraphs[0].text
+d.paragraphs[1].text
+
+#Paragraphs are composed of "runs". The runs member variable of a paragraph object contains a list of run objects.
+p = d.paragraphs[1]
+p.runs
+
+#Run objects also have a text member variable.
+p.runs[0].text
+p.runs[1].text
+p.runs[2].text
+p.runs[3].text
+
+#Run objects have a bold, italic, and underline member variables which can be set to True or False.
+p.runs[0].bold
+p.runs[0].bold == None #True
+p.runs[3].italic #True
+d.paragraphs[1].text
+
+p.runs[3].underline = True
+p.runs[3].text = 'italic and underlined.'
+d.save('demo.docx')
+
+#Paragraph and run objects have a style member variable that can be set to one of Word's built-in styles.
+#Ctrl+Alt+Shft+s: Opens the style dialog in word document.
+p.style
+p.style = 'Title'
+d.save('demo1.docx')
+
+#Word files can be created by calling add_paragraph() and add_run() to append text content.
+d = docx.Document() # Creates a new document.
+d.add_paragraph('Hello this is a paragraph.')
+d.add_paragraph('Hello this is another paragraph.')
+d.save('demo2.docx')
+p = d.paragraphs[0]
+p.add_run('This is a new run.')
+p.runs
+p.runs[1].bold = True
+d.save('demo3.docx')

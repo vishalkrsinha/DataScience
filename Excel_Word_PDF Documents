@@ -66,3 +66,50 @@ wb.save('testexample.xlsx')
 #Changes we make to the workbook object can be saved with the save() method.
 wb.create_sheet(title = 'My Other Sheet', index = 1)
 wb.save('testexample.xlsx')
+
+
+# =============================================================================
+# Reading & Editing PDFs
+# =============================================================================
+#The PyPDF2 module can read & write PDFs.
+import PyPDF2
+
+#Opening a PDF is done by calling open() and passing the file object to PdfFileReader().
+pdfFile = open('meetingminutes1.pdf','rb') #PDFs are binary files, so opening it in read binary format
+reader = PyPDF2.PdfFileReader(pdfFile)
+reader.numPages
+
+#A Page object can be obtained from the PDF object with the getPage() method.
+page = reader.getPage(0)
+
+#The text from a Page object is obtained with the extractText() method, which can be imperfect.
+page.extractText()
+
+for pageNum in range(reader.numPages):
+    print(reader.getPage(pageNum).extractText())
+
+#New PDFs can be made from PdfFileWriter().
+import PyPDF2
+pdfFile1 = open('meetingminutes1.pdf','rb')
+reader1 = PyPDF2.PdfFileReader(pdfFile1)
+
+pdfFile2 = open('meetingminutes2.pdf','rb')
+reader2 = PyPDF2.PdfFileReader(pdfFile2)
+
+writer = PyPDF2.PdfFileWriter()
+
+#New pages can be appended to a writer object with the addPage() method.
+for pageNum in range(reader1.numPages):
+    page = reader1.getPage(pageNum)
+    writer.addPage(page)
+    
+for pageNum in range(reader2.numPages):
+    page = reader2.getPage(pageNum)
+    writer.addPage(page)
+
+#Call the write() method to save its changes.
+outputFile = open('combinedminutes.pdf','wb')
+writer.write(outputFile)
+outputFile.close()
+pdfFile1.close()
+pdfFile2.close()

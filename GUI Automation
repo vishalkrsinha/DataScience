@@ -44,3 +44,29 @@ pyautogui.dragRel(0,-100, duration=1)
 pyautogui.displayMousePosition() #Press Ctrl+C to quit
 
 #There's more documentation at pyautogui.readthedocs.org
+
+
+# =============================================================================
+# Controlling the Keyboard from Python
+# =============================================================================
+#payautogui's virtual key presses will go the window that currently has focus.
+import pyautogui
+
+#typewrite() can be passed a string of characters to type. It also has a interval keyword argument.
+pyautogui.click(100,100) ; pyautogui.typewrite('Hello world!')
+pyautogui.click(100,100) ; pyautogui.typewrite('Hello world!',interval=0.2)
+
+#Passing a list of strings to typewrite() lets you hard-to-type keyboard keys, like 'shift' or 'f1'.
+pyautogui.click(100,100) ; pyautogui.typewrite(['a','b','left','left','X','Y'], interval=1)
+
+#These keyboard keys strings are in the pyautogui.KEYBOARD_KEYS list.
+pyautogui.KEYBOARD_KEYS
+
+#pyautogui.press() will press a single key.
+pyautogui.press('F10')
+
+#pyautogui.hotkey() can be used for keyboard shortcuts, like Ctrl+O.
+pyautogui.hotkey('ctrl','s')
+pyautogui.hotkey('ctrl','o')
+
+

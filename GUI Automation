@@ -1,0 +1,46 @@
+# =============================================================================
+# Controlling the Mouse from Python
+# =============================================================================
+#Controlling the mouse and keyboard is called GUI automation.
+import pyautogui #Install it through command: pip install pyautogui
+#In progg, Y co-ordinates increase going down. This is the opposite of Y co-ordinates in maths.
+#The PyAutoGUI 3rd party module has many functions to control the mouse & keyboard.
+
+
+#pyautogui.size() returns the screen resolution, pyautogui.position() returns the mouse position, both as a tuple of 2 ints.
+pyautogui.size() #Gives screen resolution. e.g. (1920,1080)
+width, height = pyautogui.size()
+width #1920
+height #1080
+
+pyautogui.position() #Current co-ordinates of mouse cursor.
+
+#pyautogui.moveTo() moves the mouse to an x,y co-ordinate.
+pyautogui.moveTo(700,700) # Moves mouse to provided co-ordinates
+
+#The mouse move is instant, unless you pass an int for the duration keyword argument.
+pyautogui.moveTo(700,700,duration = 1.5) # Moves mouse to provided co-ordinates
+
+#pyautogui.moveRel() moves the mouse relative to it's current position.
+pyautogui.moveRel(20,0)
+pyautogui.moveRel(200,0)
+pyautogui.moveRel(200,0,duration=2)
+pyautogui.moveRel(0,-100)
+pyautogui.moveRel(0,-100, duration=1)
+
+#pyautogui's click(), doubleClick(), rightClick(), and middleClick() click the mouse buttons.
+pyautogui.position() #Help menu position: 581,46
+pyautogui.click(581,46) #To click Help menu, through it's co-ordinate
+pyautogui.click()
+pyautogui.doubleClick()
+pyautogui.rightClick()
+pyautogui.middleClick()
+
+#dragTo() and dragRel() will move the mouses while holding down a mouse button.
+pyautogui.dragTo(0,-100, duration=1)
+pyautogui.dragRel(0,-100, duration=1)
+#If your program gets out of control, quickly move the mouse cursor to the top-left.
+
+pyautogui.displayMousePosition() #Press Ctrl+C to quit
+
+#There's more documentation at pyautogui.readthedocs.org

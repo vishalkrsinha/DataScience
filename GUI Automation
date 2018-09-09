@@ -70,3 +70,22 @@ pyautogui.hotkey('ctrl','s')
 pyautogui.hotkey('ctrl','o')
 
 
+# =============================================================================
+# Screenshots and Image Recognition
+# =============================================================================
+import pyautogui
+
+#A screenshot is an image of the screen's content.
+pyautogui.screenshot()
+
+#The pyautogui.screenshot() returns an image object of the screen, or we can pass it a filename to save it to a file.
+pyautogui.screenshot(r'C:\Users\vishalk\Desktop\Spyder.png')
+
+#locateOnScreen() is passed a sample image file, and returns the co-ordinates of where it is on the screen.
+loc = pyautogui.locateOnScreen(r'C:\Users\vishalk\Desktop\Spyder.png')
+
+#locateCenterOnScreen() returns a (x,y) tuple of where the image is on the screen.
+loc = pyautogui.locateCenterOnScreen(r'C:\Users\vishalk\Desktop\Spyder.png')
+
+
+########Combining the keyboard/mouse/screenshot functions let's us make awesome stuff! :)

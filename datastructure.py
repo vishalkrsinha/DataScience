@@ -1,12 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Aug 20 22:27:52 2018
-
-@author: vk4cs
-"""
+# =============================================================================
+# Datastructures
+# =============================================================================
 
 """List"""
-#Defining & Initializing a 1D list
+#Defining & Initializing a 1-D list
 zoo_animals = ["sdjhs","erewrew","erewrew","erewr"]
 
 zoo_animals[0] #Accessing individual list item

@@ -2,11 +2,15 @@
 #1. Each real life object has 2 types of features:
     #a. Characteristics: State of an object. e.g. Speed, color, Model etc at a specific time.
     #b. Functions: Behaviour of an object. e.g. Accelearte, Brake etc.
-#2. __init__()  is the constructor of a class in Python
+#2. __init__()  is the constructor of a class in Python. The __init__() function is called automatically every time the class is being used to create a new object.
 #3. Each function of a class starts with a parameter 'self'. We don't need to pass it explicitly.
 #4. 'self' parameter of an object has the responsibility to differentiate it from other objects.
 #5. Python passes the reference of an object through 'self' parameter implicitly.
 #6. To get address of a class object: obj1
+#7. The __init__() function is called automatically every time the class is being used to create a new object.
+#8. The self parameter is a reference to the class instance itself, and is used to access variables that belongs to the class. we can use any string except "self" here.
+#9. We can delete properties on objects by using the del keyword: e.g., del car1.color
+#10. We can delete objects by using the del keyword: e.g., del car1
    
 class Car:
     def __init__(self,name,color): #__init__()  is the constructor of a class in Python

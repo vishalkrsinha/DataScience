@@ -7,10 +7,9 @@
 #4. 'self' parameter of an object has the responsibility to differentiate it from other objects.
 #5. Python passes the reference of an object through 'self' parameter implicitly.
 #6. To get address of a class object: obj1
-#7. The __init__() function is called automatically every time the class is being used to create a new object.
-#8. The self parameter is a reference to the class instance itself, and is used to access variables that belongs to the class. we can use any string except "self" here.
-#9. We can delete properties on objects by using the del keyword: e.g., del car1.color
-#10. We can delete objects by using the del keyword: e.g., del car1
+#7. The self parameter is a reference to the class instance itself, and is used to access variables that belongs to the class. we can use any string except "self" here.
+#8. We can delete properties on objects by using the del keyword: e.g., del car1.color
+#9. We can delete objects by using the del keyword: e.g., del car1
    
 class Car:
     def __init__(self,name,color): #__init__()  is the constructor of a class in Python
